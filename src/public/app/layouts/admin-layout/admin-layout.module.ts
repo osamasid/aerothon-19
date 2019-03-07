@@ -12,6 +12,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { FlightA320Component } from '../../flight-a320/flight-a320.component'
+import { FlightA350Component } from '../../flight-a350/flight-a350.component'
 
 import {
   MatButtonModule,
@@ -21,6 +22,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { FlightA330Component } from '../../flight-a330/flight-a330.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -42,7 +44,9 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    FlightA320Component
+    FlightA320Component,
+    FlightA330Component,
+    FlightA350Component,
   ]
 })
 

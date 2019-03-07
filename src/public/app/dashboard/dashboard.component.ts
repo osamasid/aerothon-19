@@ -79,6 +79,7 @@ export class DashboardComponent implements OnInit {
         },
         (err: any) => console.log(err),
         () => console.log('news items'));
+
       console.log(this.newsItems)
 
       const dataDailySalesChart: any = {

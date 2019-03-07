@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-flight-a320',
@@ -11,5 +12,9 @@ export class FlightA320Component implements OnInit {
 
   ngOnInit() {
   }
-
+  editFlight(form: NgForm) {
+    console.log(form.value);
+    // {email: '...', password: '...'}
+    // ... <-- now use JSON.stringify() to convert form values to json.
+  }
 }

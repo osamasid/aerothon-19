@@ -25,6 +25,8 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FlightAComponent } from './flights/flight-a/flight-a.component';
 import { FlightA320Component } from './flight-a320/flight-a320.component';
+import { FlightA330Component } from './flight-a330/flight-a330.component';
+import { FlightA350Component } from './flight-a350/flight-a350.component';
 
 @NgModule({
   imports: [
@@ -41,7 +43,9 @@ import { FlightA320Component } from './flight-a320/flight-a320.component';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    
+    
 
   ],
   providers: [],

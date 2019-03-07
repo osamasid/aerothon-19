@@ -318,6 +318,11 @@
     &[data-color="danger"]{
         @include set-background-color-button($brand-danger);
     }
+
+    &[data-color="indigo"]{
+        @include set-background-color-button($brand-indigo);
+    }
+
     &[data-color="rose"]{
         @include set-background-color-button($brand-rose);
     }

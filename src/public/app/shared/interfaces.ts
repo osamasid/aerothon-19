@@ -45,9 +45,9 @@ export interface ICustomerResponse {
 }
 
 export interface INews{
-    timestamp: string;
+    timestamp: Date;
     headline: string;
-    description: string;
+    text: string;
 }
 
 export interface IFlight{

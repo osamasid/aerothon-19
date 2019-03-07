@@ -16,7 +16,8 @@ import { ICustomer, IOrder, IState, IPagedResults, ICustomerResponse, INews, IFl
 export class DataService {
   
     baseUrl: string = '/api/customers';
-    baseStatesUrl: string = '/api/states'
+    baseStatesUrl: string = '/api/states';
+    homeUrl: string = 'api/home';
 
     constructor(private http: HttpClient) { 
 
@@ -102,7 +103,7 @@ export class DataService {
         return Observable.throw(error || 'Node.js server error');
     }
 
-    getNews(): INews[]{
+    getNews(): Observable<INews[]>{
         var newsItems = [{
             'timestamp': '12137',
             'headline':'News Item 1',
@@ -117,7 +118,9 @@ export class DataService {
             'headline':'News Item 3',
             'description' : 'airbus hackathon'
         }]
-        return newsItems
+        return this.http.get<INews[]>(this.homeUrl)
+            .catch(this.handleError);
+        //return newsItems
     }
     getFlight(id): IFlight{
         return {

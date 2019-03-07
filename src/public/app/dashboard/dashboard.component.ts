@@ -71,7 +71,14 @@ export class DashboardComponent implements OnInit {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       //get news
-      this.newsItems = this.dataService.getNews()
+      //this.newsItems = this.dataService.getNews()
+
+      this.dataService.getNews()
+        .subscribe((response: INews[]) => {
+          this.newsItems = response;
+        },
+        (err: any) => console.log(err),
+        () => console.log('news items'));
       console.log(this.newsItems)
 
       const dataDailySalesChart: any = {

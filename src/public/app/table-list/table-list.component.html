@@ -51,19 +51,40 @@
                               <tbody>
                                   <tr *ngFor="let flight of flights;">
                                       <td>
-                                          {{ customers._id }}
+                                          {{ flight.MSN }}
                                       </td>
                                       <td>
-                                          {{  customers.firstName }}
+                                          {{  flight.harnessLen }}
                                       </td>
                                       <td>
-                                           {{  customers.lastName }}
+                                           {{  flight.grossWt }}
                                       </td>
                                       <td>
-                                          {{  customers.address }}
+                                          {{  flight.atmPress }}
                                       </td>
+                                       <td>
+                                          {{  flight.roomTemp }}
+                                      </td>
+                                      <td>
+                                        {{  flight.airport }}
+                                        </td>
+                                        <td>
+                                            {{  flight.fuelCapLt }}
+                                        </td>
+                                        <td>
+                                            {{  flight.fuelCapRt }}
+                                        </td>
+                                        <td>
+                                            {{  flight.fuelQtyLt }}
+                                        </td>
+                                        <td>
+                                            {{  flight.fuelQtyRt }}
+                                        </td>
+                                        <td>
+                                            {{  flight.fltNo }}
+                                        </td>
                                       <td class="text-primary">
-                                        {{  customers.city }}
+                                        {{  flight.city }}
                                       </td>
                                   </tr>
                               </tbody>

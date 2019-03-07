@@ -42,6 +42,20 @@ export class DataService {
                     })
                     .catch(this.handleError);
     }
+
+    getFlightsPage(page: number, pageSize: number) : Observable<IPagedResults<IFlight[]>> {
+        return this.http.get<IFlight[]>(`${this.baseUrl}/page/${page}/${pageSize}`, {observe: 'response'})
+                    .map((res) => {
+                        //Need to observe response in order to get to this header (see {observe: 'response'} above)
+                        const totalRecords = +res.headers.get('x-inlinecount');
+                        let flights = res.body as IFlight[];
+                        return {
+                            results: flights,
+                            totalRecords: totalRecords
+                        };
+                    })
+                    .catch(this.handleError);
+    }
     
     getCustomer(id: string) : Observable<ICustomer> {
         return this.http.get<ICustomer>(this.baseUrl + '/' + id)

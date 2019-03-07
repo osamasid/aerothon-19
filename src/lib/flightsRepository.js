@@ -25,30 +25,30 @@ class FlightsRepository {
         });
     }
 
-    // getPagedCustomers(skip, top, callback) {
-    //     console.log('*** FlightsRepository.getPagedCustomers');
-    //     Customer.count((err, custsCount) => {
-    //         let count = custsCount;
-    //         console.log(`Skip: ${skip} Top: ${top}`);
-    //         console.log(`Customers count: ${count}`);
+    getPagedFlights(skip, top, callback) {
+        console.log('*** FlightsRepository.getPagedFlights');
+        Flight.count((err, flightCount) => {
+            let count = flightCount;
+            console.log(`Skip: ${skip} Top: ${top}`);
+            console.log(`Flight count: ${count}`);
 
-    //         Customer.find({})
-    //                 .sort({lastName: 1})
-    //                 .skip(skip)
-    //                 .limit(top)
-    //                 .exec((err, customers) => {
-    //                     if (err) { 
-    //                         console.log(`*** FlightsRepository.getPagedCustomers error: ${err}`); 
-    //                         return callback(err); 
-    //                     }
-    //                     callback(null, {
-    //                         count: count,
-    //                         customers: customers
-    //                     });
-    //                 });
+            Flight.find({})
+                    .sort({lastName: 1})
+                    .skip(skip)
+                    .limit(top)
+                    .exec((err, flights) => {
+                        if (err) { 
+                            console.log(`*** FlightsRepository.getPagedFlights error: ${err}`); 
+                            return callback(err); 
+                        }
+                        callback(null, {
+                            count: count,
+                            flights: flights
+                        });
+                    });
 
-    //     });
-    // }
+        });
+    }
 
     // // get the customer summary
     // getFlightsSummary(skip, top, callback) {

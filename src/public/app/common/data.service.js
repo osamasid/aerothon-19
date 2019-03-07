@@ -22,6 +22,7 @@ var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
         this.baseUrl = '/api/customers';
+        this.baseFlightUrl = '/api/flights';
         this.baseStatesUrl = '/api/states';
     }
     DataService.prototype.getCustomers = function () {
@@ -48,6 +49,23 @@ var DataService = /** @class */ (function () {
         })
             .catch(this.handleError);
     };
+
+    DataService.prototype.getFlightsPage = function (page, pageSize) {
+        var _this = this;
+        return this.http.get(this.baseUrl + "/page/" + page + "/" + pageSize, { observe: 'response' })
+            .map(function (res) {
+            //Need to observe response in order to get to this header (see {observe: 'response'} above)
+            var totalRecords = +res.headers.get('x-inlinecount');
+            var flights = res.body;
+            return {
+                results: flights,
+                totalRecords: totalRecords
+            };
+        })
+            .catch(this.handleError);
+    };
+
+
     DataService.prototype.getCustomer = function (id) {
         return this.http.get(this.baseUrl + '/' + id)
             .catch(this.handleError);

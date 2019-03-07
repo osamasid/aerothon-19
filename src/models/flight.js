@@ -18,4 +18,12 @@ const FlightSchema = new Schema({
   fltNo    : { type : String, required: false, trim: true }
 });
 
+mongoose.set('useCreateIndex', true);
+
+FlightSchema.index({
+  MSN: 1,
+}, {
+  unique: true,
+});
+
 module.exports = mongoose.model('Flight', FlightSchema, 'flights');

@@ -95,7 +95,7 @@ class FlightsController {
                         res.json({ status: false, error: 'Update failed', flight: null });
                     } else {
                         console.log('*** updateflight ok');
-                        res.json({ status: true, error: null, flight: flight });
+                        res.json({ status: true, error: null, flight: flight });            
                     }
                 });
             }

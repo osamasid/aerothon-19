@@ -11,6 +11,9 @@
                       <div class="table-responsive">
                           <table class="table">
                               <thead class=" text-primary">
+                                    <th>
+                                            Model
+                                        </th>
                                   <th>
                                       MSN
                                   </th>
@@ -50,6 +53,9 @@
                               </thead>
                               <tbody>
                                   <tr *ngFor="let flight of flights;">
+                                        <td>
+                                                {{ flight.model }}
+                                            </td>
                                       <td>
                                           {{ flight.MSN }}
                                       </td>
@@ -80,6 +86,9 @@
                                         <td>
                                             {{  flight.fuelQtyRt }}
                                         </td>
+                                        <td>
+                                            {{  flight.maxAlt }}
+                                            </td>
                                         <td>
                                             {{  flight.fltNo }}
                                         </td>

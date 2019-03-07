@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../common/data.service';
-import { ICustomerResponse,ICustomer, IFlight } from '../shared/interfaces';
+import { ICustomerResponse,ICustomer } from '../shared/interfaces';
 
 @Component({
   selector: 'app-table-list',
@@ -10,7 +10,7 @@ import { ICustomerResponse,ICustomer, IFlight } from '../shared/interfaces';
 })
 export class TableListComponent implements OnInit {
 
-  flight: IFlight;
+  customers: ICustomer;
 
   constructor( private dataService: DataService ) { }
 
@@ -19,9 +19,9 @@ export class TableListComponent implements OnInit {
   }
 
   getInitializeFlights(): any {
-        this.dataService.getFlight("5c7ff7550c8c9253216ae41c")
-        .subscribe((response: IFlight) => {
-          this.flight = response;
+        this.dataService.getCustomer("5c7d4736687cbd72e6a25b8b")
+        .subscribe((response: ICustomer) => {
+          this.customers = response;
         },
         (err: any) => console.log(err),
         () => console.log('getCustomer("5c7d4736687cbd72e6a25b8b") retrieved customers'));

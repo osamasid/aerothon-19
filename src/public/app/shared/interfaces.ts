@@ -16,12 +16,6 @@ export interface ICustomer {
     orderTotal?: number;
 }
 
-export interface IFlight {
-  
-    abbreviation: string;
-    name: string;
-}
-
 export interface IState {
     abbreviation: string;
     name: string;
@@ -48,4 +42,26 @@ export interface ICustomerResponse {
     customer: ICustomer;
     status: boolean;
     error: string;
+}
+
+export interface INews{
+    timestamp: string;
+    headline: string;
+    description: string;
+}
+
+export interface IFlight{
+    model: string;
+    MSN: number;
+    harnessLen : number;
+    grossWt: number;
+    atmPress: number;
+    roomTemp: number;
+    airport: string;
+    fuelCapLt: number;
+    fuelCapRt: number;
+    fuelQtyLt: number;
+    fuelQtyRt: number;
+    maxAlt: number;
+    fltNo: string;
 }

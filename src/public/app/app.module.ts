@@ -23,6 +23,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { FlightAComponent } from './flights/flight-a/flight-a.component';
+import { FlightA320Component } from './flight-a320/flight-a320.component';
 
 @NgModule({
   imports: [
@@ -39,7 +41,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
+    AdminLayoutComponent
 
   ],
   providers: [],

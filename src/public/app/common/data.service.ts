@@ -10,16 +10,16 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map'; 
 import 'rxjs/add/operator/catch';
 
-import { ICustomer, IOrder, IState, IFlight, IPagedResults, ICustomerResponse } from '../shared/interfaces';
+import { ICustomer, IOrder, IState, IPagedResults, ICustomerResponse, INews, IFlight } from '../shared/interfaces';
 
 @Injectable()
 export class DataService {
   
     baseUrl: string = '/api/customers';
-    baseStatesUrl: string = '/api/states';
-    baseFlightsUrl: string = '/api/flights';
+    baseStatesUrl: string = '/api/states'
 
     constructor(private http: HttpClient) { 
+
     }
     
     getCustomers() : Observable<ICustomer[]> {
@@ -101,9 +101,72 @@ export class DataService {
         }
         return Observable.throw(error || 'Node.js server error');
     }
-    getFlight(id: string) : Observable<IFlight> {
-        return this.http.get<IFlight>(this.baseFlightsUrl + '/' + id)
-                   .catch(this.handleError);
-    }
 
+    getNews(): INews[]{
+        var newsItems = [{
+            'timestamp': '12137',
+            'headline':'News Item 1',
+            'description' : 'airbus hackathon'
+        },{
+            'timestamp': '1213234',
+            'headline':'News Item 2',
+            'description' : 'airbus hackathon'
+        },
+        {
+            'timestamp': '121332423',
+            'headline':'News Item 3',
+            'description' : 'airbus hackathon'
+        }]
+        return newsItems
+    }
+    getFlight(id): IFlight{
+        return {
+            model: 'A1230',
+            MSN: 12345,
+            harnessLen : 234,
+            grossWt: 890,
+            atmPress: 80,
+            roomTemp: 298,
+            airport: "airport",
+            fuelCapLt: 20,
+            fuelCapRt: 30,
+            fuelQtyLt: 23,
+            fuelQtyRt: 80,
+            maxAlt: 12989,
+            fltNo: "A276",
+        }
+    }
+    getFlights(): IFlight[]{
+
+        return [{
+            model: 'A1230',
+            MSN: 12345,
+            harnessLen : 234,
+            grossWt: 890,
+            atmPress: 80,
+            roomTemp: 298,
+            airport: "airport",
+            fuelCapLt: 20,
+            fuelCapRt: 30,
+            fuelQtyLt: 23,
+            fuelQtyRt: 80,
+            maxAlt: 12989,
+            fltNo: "A276",
+        },
+        {
+            model: 'A1231',
+            MSN: 12340,
+            harnessLen : 234,
+            grossWt: 890,
+            atmPress: 80,
+            roomTemp: 298,
+            airport: "airport",
+            fuelCapLt: 20,
+            fuelCapRt: 30,
+            fuelQtyLt: 23,
+            fuelQtyRt: 80,
+            maxAlt: 12989,
+            fltNo: "A276",
+        }]
+    }
 }

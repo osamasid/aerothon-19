@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {DataService} from '../common/data.service'
+import {INews} from '../shared/interfaces'
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +9,8 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  private newsItems : INews[];
+  constructor(private dataService: DataService ) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,6 +69,10 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+
+      //get news
+      this.newsItems = this.dataService.getNews()
+      console.log(this.newsItems)
 
       const dataDailySalesChart: any = {
           labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],

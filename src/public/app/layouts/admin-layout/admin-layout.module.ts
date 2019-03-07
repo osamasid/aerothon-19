@@ -11,6 +11,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { FlightA320Component } from '../../flight-a320/flight-a320.component'
 
 import {
   MatButtonModule,
@@ -41,6 +42,7 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    FlightA320Component
   ]
 })
 

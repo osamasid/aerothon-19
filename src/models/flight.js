@@ -3,7 +3,6 @@ const mongoose = require('mongoose'),
       ObjectId = Schema.ObjectId;
 
 const FlightSchema = new Schema({
-  id  : { type : Number, required: false },
   model    : { type : String, required: true, trim: true },
   MSN    : { type : Number, required: true, trim: true },
   harnessLen    : { type : Number, required: false, trim: true },

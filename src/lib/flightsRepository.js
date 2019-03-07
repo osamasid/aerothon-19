@@ -84,15 +84,25 @@ class FlightsRepository {
 
     // insert a  customer
     insertFlight(body, callback) {
-        console.log('*** FlightsRepository.insertFlight');
-        
+        console.log('*** FlightsRepository.insertFlight');   
         let flight = new Flight();
-       // let newState = { 'id': state[0].id, 'firstName': state[0].firstName, 'lastName': state[0].lastName }
-        console.log(body);
 
-        flight.name = body.name;
-        flight.abbreviation = body.abbreviation;
+        console.log('The body is '+ body);
+
         flight.id = body.id;
+        flight.model = body.model;
+        flight.MSN = body.MSN;
+        flight.harnessLen = body.harnessLen;
+        flight.grossWt = body.grossWt;
+        flight.atmPress = body.atmPress;
+        flight.roomTemp = body.roomTemp;
+        flight.airport = body.airport;
+        flight.fuelCapLt = body.fuelCapLt;
+        flight.fuelCapRt = body.fuelCapRt;
+        flight.fuelQtyLt = body.fuelQtyLt;
+        flight.fuelQtyRt = body.fuelQtyRt;  
+        flight.maxAlt = body.maxAlt;
+        flight.fltNo = body.fltNo;
         
         console.log(flight);
 

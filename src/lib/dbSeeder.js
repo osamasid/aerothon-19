@@ -2,7 +2,7 @@
 const   mongoose = require('mongoose'),
         Customer = require('../models/customer'),
         State = require('../models/state'),
-        Flight = require('../models/flight'),
+        Home = require('../models/home'),
         dbConfig = require('./configLoader').databaseConfig,
         connectionString = `mongodb://${dbConfig.host}/${dbConfig.database}`,
         connection = null;
@@ -253,32 +253,21 @@ class DBSeeder {
             var state = new State ({ 'id': i + 1, 'name': states[i].name, 'abbreviation': states[i].abbreviation });
             state.save();
         }
-        console.log("Flight seed start");
-        var flights = [
-            { "name": "Alabama", "abbreviation": "AL" },
-            { "name": "Montana", "abbreviation": "MT" },
-            { "name": "Alaska", "abbreviation": "AK" },
-            { "name": "Virginia", "abbreviation": "VA" },
-            { "name": "Michigan", "abbreviation": "MI" },
-            { "name": "Washington", "abbreviation": "WA" },
-            { "name": "Minnesota", "abbreviation": "MN" },
-            { "name": "West Virginia", "abbreviation": "WV" },
-            { "name": "Mississippi", "abbreviation": "MS" },
-            { "name": "Wisconsin", "abbreviation": "WI" },
-            { "name": "Missouri", "abbreviation": "MO" },
-            { "name": "Wyoming", "abbreviation": "WY" }
-            ];
-    
-            var l = flights.length,i;
-            console.log("Flight array size "+l);
-            Flight.remove({});
-    
-            for (i = 0; i < l; i++) {
+
+            var news = [
+                { "timestamp": Date("2014-02-1T10:50:42.389Z"), "headline": "Hackathon by Airbus1" , "text" : "Bangalore is Excited"},
+                { "timestamp": Date("2014-02-10T10:50:42.389Z"), "headline": "Hackathon by Airbus2" , "text" : "Bangalore is Excited"},
+                { "timestamp": Date("2014-02-11T10:50:42.389Z"), "headline": "Hackathon by Airbus3" , "text" : "Bangalore is Excited"}
+            ]
+            var l = news.length,i;
+            console.log("Size of News"+ i);
+            Home.remove({});
+
+            for(i=0; i < l;i++){
                 console.log("Id "+ i);
-                var flight = new Flight ({ 'id': i , 'name': flights[i].name, 'abbreviation': flights[i].abbreviation });
-                flight.save();
+                var home = new Home ({ 'timestamp': news[i].timestamp , 'headline': news[i].headline, 'text': news[i].text });
+                home.save();
             }
-            console.log("Flight seed end");
     }
 }
 

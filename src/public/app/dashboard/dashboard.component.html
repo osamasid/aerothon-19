@@ -4,17 +4,13 @@
     <div class="row" *ngFor = 'let item of newsItems'>
             <div class="col-md-4">
                 <div class="card card-chart">
-                    <div class="card-header card-header-success">
-<<<<<<< HEAD
-                        <div class="ct-chart" id="websiteViewsChart"></div>
-=======
-                        <div class="ct-chart" id="completedTasksChart"></div>
->>>>>>> 58c69c3a436749ac840ed7ca28ad14cfa4c9c2c2
-                    </div>
+                        <div class="card-header card-header-success">
+                                <div class="ct-chart" id="dailySalesChart"></div>
+                            </div>
                     <div class="card-body">
                         <h4 class="card-title">{{item.headline}}</h4>
                         <p class="card-category">
-                            <span class="text-success"><i class="fa fa-long-arrow-up"></i>  </span> {{item.description}}</p>
+                            <span class="text-success"><i class="fa fa-long-arrow-up"></i>  </span> {{item.text}}</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">

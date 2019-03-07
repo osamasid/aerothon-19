@@ -15,7 +15,7 @@ import { ICustomer, IOrder, IState, IPagedResults, ICustomerResponse, INews, IFl
 @Injectable()
 export class DataService {
   
-    baseUrl: string = '/api/customers';
+    baseUrl: string = '/api/flights';
     baseStatesUrl: string = '/api/states';
     homeUrl: string = 'api/home';
 
@@ -23,12 +23,8 @@ export class DataService {
 
     }
     
-    getCustomers() : Observable<ICustomer[]> {
-        return this.http.get<ICustomer[]>(this.baseUrl)
-                   .map((customers: ICustomer[]) => {
-                       this.calculateCustomersOrderTotal(customers);
-                       return customers;
-                   })
+    getFlights() : Observable<IFlight[]> {
+        return this.http.get<IFlight[]>(this.baseUrl)
                    .catch(this.handleError);
     }
 
@@ -41,6 +37,20 @@ export class DataService {
                         this.calculateCustomersOrderTotal(customers);
                         return {
                             results: customers,
+                            totalRecords: totalRecords
+                        };
+                    })
+                    .catch(this.handleError);
+    }
+
+    getFlightsPage(page: number, pageSize: number) : Observable<IPagedResults<IFlight[]>> {
+        return this.http.get<IFlight[]>(`${this.baseUrl}/page/${page}/${pageSize}`, {observe: 'response'})
+                    .map((res) => {
+                        //Need to observe response in order to get to this header (see {observe: 'response'} above)
+                        const totalRecords = +res.headers.get('x-inlinecount');
+                        let flights = res.body as IFlight[];
+                        return {
+                            results: flights,
                             totalRecords: totalRecords
                         };
                     })
@@ -138,38 +148,5 @@ export class DataService {
             maxAlt: 12989,
             fltNo: "A276",
         }
-    }
-    getFlights(): IFlight[]{
-
-        return [{
-            model: 'A1230',
-            MSN: 12345,
-            harnessLen : 234,
-            grossWt: 890,
-            atmPress: 80,
-            roomTemp: 298,
-            airport: "airport",
-            fuelCapLt: 20,
-            fuelCapRt: 30,
-            fuelQtyLt: 23,
-            fuelQtyRt: 80,
-            maxAlt: 12989,
-            fltNo: "A276",
-        },
-        {
-            model: 'A1231',
-            MSN: 12340,
-            harnessLen : 234,
-            grossWt: 890,
-            atmPress: 80,
-            roomTemp: 298,
-            airport: "airport",
-            fuelCapLt: 20,
-            fuelCapRt: 30,
-            fuelQtyLt: 23,
-            fuelQtyRt: 80,
-            maxAlt: 12989,
-            fltNo: "A276",
-        }]
     }
 }

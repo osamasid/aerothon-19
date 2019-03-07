@@ -9,17 +9,11 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },   
-<<<<<<< HEAD
-    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
+    { path: '/table-list', title: 'Flight Catalogue',  icon:'content_paste', class: '' },
     { path: '/app-flight-a320', title: 'A320',  icon:'dashboard', class: '' },
     { path: '/app-flight-a330', title: 'A330',  icon:'dashboard', class: '' },
     { path: '/app-flight-a350', title: 'A350',  icon:'dashboard', class: '' },
-    //{ path: '/app-user-profile', title: 'Edit Flight',  icon:'content_paste', class: '' },
-=======
-    { path: '/table-list', title: 'Flight Catalogue',  icon:'content_paste', class: '' },
-    { path: '/app-flight-a320', title: 'Flight A',  icon:'dashboard', class: '' },
     { path: '/app-user-profile', title: 'Edit Flight',  icon:'content_paste', class: '' },
->>>>>>> 58c69c3a436749ac840ed7ca28ad14cfa4c9c2c2
 
 
 
